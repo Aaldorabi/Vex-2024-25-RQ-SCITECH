@@ -1,0 +1,18 @@
+{
+	"project": {
+		"name": "vex24-25V1",
+		"slot": 1,
+		"description": "Ahmed Al 3iz",
+		"platform": "V5",
+		"creationDate": "Sun, 01 Sep 2024 12:24:12 GMT",
+		"language": "cpp",
+		"sdkVersion": "V5_20240223_11_00_00",
+		"cpp": {
+			"includePath": []
+		}
+	},
+	"extension": {
+		"version": "0.6.0",
+		"json": 1
+	}
+}
