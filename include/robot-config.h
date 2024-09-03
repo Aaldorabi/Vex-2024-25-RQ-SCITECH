@@ -14,6 +14,7 @@ extern inertial InertialSens;
 extern motor CHAIN;
 extern digital_out HOOK;
 extern controller Controller1;
+extern distance Distance10;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

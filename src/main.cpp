@@ -1,5 +1,5 @@
 #include "vex.h"
-
+#include "Sensors.h"
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
@@ -14,6 +14,7 @@
 // CHAIN                motor         7               
 // HOOK                 digital_out   A               
 // Controller1          controller                    
+// Distance10           distance      10              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -252,11 +253,16 @@ int main() {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
+
   // Run the pre-autonomous function.
-  pre_auton();
+
+  //pre_auton(); //i have commented out so i can see brain screen 🤙🏿
 
   // Prevent main from exiting with an infinite loop.
-  while (true) {
+  while (true) {  
     wait(100, msec);
+    
+    Brain.Screen.print(DistanceSens1());
+    Brain.Screen.newLine();
   }
 }
