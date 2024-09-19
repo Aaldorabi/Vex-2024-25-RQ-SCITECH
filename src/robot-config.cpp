@@ -8,7 +8,6 @@ using code = vision::code;
 brain  Brain;
 
 // VEXcode device constructors
-rotation Rotation8 = rotation(PORT8, false);
 motor R1 = motor(PORT1, ratio6_1, false);
 motor R2 = motor(PORT2, ratio6_1, false);
 motor R3 = motor(PORT3, ratio6_1, false);
@@ -16,10 +15,11 @@ motor L1 = motor(PORT4, ratio6_1, true);
 motor L2 = motor(PORT5, ratio6_1, true);
 motor L3 = motor(PORT6, ratio6_1, true);
 inertial InertialSens = inertial(PORT12);
-motor CHAIN = motor(PORT7, ratio6_1, false);
 digital_out HOOK = digital_out(Brain.ThreeWirePort.A);
 controller Controller1 = controller(primary);
 distance Distance10 = distance(PORT10);
+rotation ForwardTracker = rotation(PORT7, false);
+rotation SidewayTracker = rotation(PORT8, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

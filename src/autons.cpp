@@ -41,10 +41,16 @@ void odom_constants(){
  */
 
 void drive_test(){
-  chassis.drive_distance(6);
-  chassis.drive_distance(12);
-  chassis.drive_distance(18);
-  chassis.drive_distance(-36);
+  chassis.drive_distance(24);
+  chassis.turn_to_angle(-90);
+  chassis.turn_to_angle(90);
+  chassis.turn_to_angle(-45);
+  chassis.turn_to_angle(45);
+  chassis.turn_to_angle(0);
+  chassis.drive_distance(-24);
+
+  //chassis.drive_to_point(24, 24);
+  //chassis.drive_to_pose(24, 12, 90);
 }
 
 /**

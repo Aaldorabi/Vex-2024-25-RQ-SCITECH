@@ -4,7 +4,6 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Rotation8            rotation      8               
 // R1                   motor         1               
 // R2                   motor         2               
 // R3                   motor         3               
@@ -12,10 +11,11 @@
 // L2                   motor         5               
 // L3                   motor         6               
 // InertialSens         inertial      12              
-// CHAIN                motor         7               
 // HOOK                 digital_out   A               
 // Controller1          controller                    
 // Distance10           distance      10              
+// ForwardTracker       rotation      7               
+// SidewayTracker       rotation      8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -56,7 +56,7 @@ Drive chassis(
 //HOLONOMIC_TWO_ROTATION
 //
 //Write it here:
-TANK_ONE_SIDEWAYS_ENCODER,
+TANK_TWO_ROTATION,
 
 //Add the names of your Drive motors into the motor groups below, separated by commas, i.e. motor_group(Motor1,Motor2,Motor3).
 //You will input whatever motor names you chose when you configured your robot using the sidebar configurer, they don't have to be "Motor1" and "Motor2".
@@ -76,11 +76,11 @@ PORT12,
 //External ratio, must be in decimal, in the format of input teeth/output teeth.
 //If your motor has an 84-tooth gear and your wheel has a 60-tooth gear, this value will be 1.4.
 //If the motor drives the wheel directly, this value is 1:
-0.75,
+1.3333,
 
 //Gyro scale, this is what your gyro reads when you spin the robot 360 degrees.
 //For most cases 360 will do fine here, but this scale factor can be very helpful when precision is necessary.
-360,
+358.1,
 
 /*---------------------------------------------------------------------------*/
 /*                                  PAUSE!                                   */
@@ -102,24 +102,24 @@ PORT3,     -PORT4,
 //If you are using position tracking, this is the Forward Tracker port (the tracker which runs parallel to the direction of the chassis).
 //If this is a rotation sensor, enter it in "PORT1" format, inputting the port below.
 //If this is an encoder, enter the port as an integer. Triport A will be a "1", Triport B will be a "2", etc.
-3,
+7,
 
 //Input the Forward Tracker diameter (reverse it to make the direction switch):
-2.75,
+-2,
 
 //Input Forward Tracker center distance (a positive distance corresponds to a tracker on the right side of the robot, negative is left.)
 //For a zero tracker tank drive with odom, put the positive distance from the center of the robot to the right side of the drive.
 //This distance is in inches:
--2,
+0,
 
 //Input the Sideways Tracker Port, following the same steps as the Forward Tracker Port:
-1,
+8,
 
 //Sideways tracker diameter (reverse to make the direction switch):
--2.75,
+-2,
 
 //Sideways tracker center distance (positive distance is behind the center of the robot, negative is in front):
-5.5
+-1.3
 
 );
 
@@ -257,7 +257,7 @@ int main() {
 
   // Run the pre-autonomous function.
 
-  //pre_auton(); //i have commented out so i can see brain screen 🤙🏿
+  pre_auton(); //i have commented out so i can see brain screen 🤙🏿
 
   // Prevent main from exiting with an infinite loop.
   while (true) {  
