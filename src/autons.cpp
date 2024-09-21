@@ -10,7 +10,7 @@
 
 void default_constants(){
   // Each constant set is in the form of (maxVoltage, kP, kI, kD, startI).
-  chassis.set_drive_constants(10, 1.5, 0, 10, 0);
+  chassis.set_drive_constants(12, 1.5, 0, 5, 0);
   chassis.set_heading_constants(6, .4, 0, 1, 0);
   chassis.set_turn_constants(12, .4, .03, 3, 15);
   chassis.set_swing_constants(12, .3, .001, 2, 15);
@@ -41,16 +41,18 @@ void odom_constants(){
  */
 
 void drive_test(){
-  chassis.drive_distance(24);
+  /*chassis.drive_distance(24);
   chassis.turn_to_angle(-90);
   chassis.turn_to_angle(90);
   chassis.turn_to_angle(-45);
   chassis.turn_to_angle(45);
   chassis.turn_to_angle(0);
   chassis.drive_distance(-24);
-
+*/
   //chassis.drive_to_point(24, 24);
   //chassis.drive_to_pose(24, 12, 90);
+  chassis.drive_distance(24,0,12,12,2,500,2000);
+  chassis.drive_distance(-24);
 }
 
 /**

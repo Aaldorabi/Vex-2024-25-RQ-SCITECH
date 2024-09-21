@@ -71,16 +71,16 @@ motor_group(R1,R2,R3),
 PORT12,
 
 //Input your wheel diameter. (4" omnis are actually closer to 4.125"):
-2.75,
+3.25,
 
 //External ratio, must be in decimal, in the format of input teeth/output teeth.
 //If your motor has an 84-tooth gear and your wheel has a 60-tooth gear, this value will be 1.4.
 //If the motor drives the wheel directly, this value is 1:
-1.3333,
+36.0/48.0, //1.333 if its 48 first
 
 //Gyro scale, this is what your gyro reads when you spin the robot 360 degrees.
 //For most cases 360 will do fine here, but this scale factor can be very helpful when precision is necessary.
-358.1,
+360,
 
 /*---------------------------------------------------------------------------*/
 /*                                  PAUSE!                                   */
@@ -102,7 +102,7 @@ PORT3,     -PORT4,
 //If you are using position tracking, this is the Forward Tracker port (the tracker which runs parallel to the direction of the chassis).
 //If this is a rotation sensor, enter it in "PORT1" format, inputting the port below.
 //If this is an encoder, enter the port as an integer. Triport A will be a "1", Triport B will be a "2", etc.
-7,
+PORT7,
 
 //Input the Forward Tracker diameter (reverse it to make the direction switch):
 -2,
@@ -113,7 +113,7 @@ PORT3,     -PORT4,
 0,
 
 //Input the Sideways Tracker Port, following the same steps as the Forward Tracker Port:
-8,
+PORT8,
 
 //Sideways tracker diameter (reverse to make the direction switch):
 -2,
@@ -248,12 +248,18 @@ void usercontrol(void) {
 //
 // Main will set up the competition functions and callbacks.
 //
+ 
+
 int main() {
+ //USERCONTROL
+ Controller1.ButtonL1.pressed([](){
+      HOOK.set(!HOOK.value());
+    });
+
 
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
-
 
   // Run the pre-autonomous function.
 
