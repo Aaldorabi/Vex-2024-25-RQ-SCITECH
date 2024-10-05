@@ -13,9 +13,10 @@
 // InertialSens         inertial      12              
 // HOOK                 digital_out   A               
 // Controller1          controller                    
-// Distance10           distance      10              
 // ForwardTracker       rotation      7               
 // SidewayTracker       rotation      8               
+// ChainIntake          motor         9               
+// WheelIntake          motor         10              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -105,7 +106,7 @@ PORT3,     -PORT4,
 PORT7,
 
 //Input the Forward Tracker diameter (reverse it to make the direction switch):
--2,
+2,
 
 //Input Forward Tracker center distance (a positive distance corresponds to a tracker on the right side of the robot, negative is left.)
 //For a zero tracker tank drive with odom, put the positive distance from the center of the robot to the right side of the drive.
@@ -232,6 +233,21 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
+
+    if(Controller1.ButtonR2.pressing()){
+      ChainIntake.spin(forward,12,volt);
+      WheelIntake.spin(forward,12,volt);
+    }
+    else if (Controller1.ButtonR1.pressing()) {
+      ChainIntake.spin(reverse,12,volt);
+      WheelIntake.spin(reverse,12,volt);
+    }
+    else{
+      ChainIntake.stop(brakeType::coast);
+      WheelIntake.stop(brakeType::coast);
+      ChainIntake.setBrake(coast);
+      WheelIntake.setBrake(coast);
+    }
     // add anything that loops here alright bro
     
 
@@ -255,6 +271,7 @@ int main() {
  Controller1.ButtonL1.pressed([](){
       HOOK.set(!HOOK.value());
     });
+
 
 
   // Set up callbacks for autonomous and driver control periods.

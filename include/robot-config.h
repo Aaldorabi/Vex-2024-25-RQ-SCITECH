@@ -12,9 +12,10 @@ extern motor L3;
 extern inertial InertialSens;
 extern digital_out HOOK;
 extern controller Controller1;
-extern distance Distance10;
 extern rotation ForwardTracker;
 extern rotation SidewayTracker;
+extern motor ChainIntake;
+extern motor WheelIntake;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

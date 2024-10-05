@@ -17,9 +17,10 @@ motor L3 = motor(PORT6, ratio6_1, true);
 inertial InertialSens = inertial(PORT12);
 digital_out HOOK = digital_out(Brain.ThreeWirePort.A);
 controller Controller1 = controller(primary);
-distance Distance10 = distance(PORT10);
 rotation ForwardTracker = rotation(PORT7, false);
 rotation SidewayTracker = rotation(PORT8, false);
+motor ChainIntake = motor(PORT9, ratio18_1, true);
+motor WheelIntake = motor(PORT10, ratio18_1, true);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

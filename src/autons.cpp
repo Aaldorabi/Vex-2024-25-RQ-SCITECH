@@ -81,6 +81,7 @@ void swing_test(){
  */
 
 void full_test(){
+  chassis.drive_to_point(12, 12,6,12,12);
   chassis.drive_distance(24);
   chassis.turn_to_angle(-45);
   chassis.drive_distance(-36);
