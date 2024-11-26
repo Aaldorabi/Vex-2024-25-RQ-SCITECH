@@ -5,18 +5,18 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // R1                   motor         1               
-// R2                   motor         2               
+// R2                   motor         10              
 // R3                   motor         3               
 // L1                   motor         4               
 // L2                   motor         5               
 // L3                   motor         6               
 // InertialSens         inertial      12              
-// HOOK                 digital_out   A               
+// MogoMech             digital_out   B               
 // Controller1          controller                    
-// ForwardTracker       rotation      7               
 // SidewayTracker       rotation      8               
-// ChainIntake          motor         9               
-// WheelIntake          motor         10              
+// ARMPiston            digital_out   A               
+// NeutralPiston        digital_out   C               
+// Intake               motor_group   9, 7            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -57,14 +57,13 @@ Drive chassis(
 //HOLONOMIC_TWO_ROTATION
 //
 //Write it here:
-TANK_TWO_ROTATION,
+TANK_ONE_SIDEWAYS_ROTATION,
 
 //Add the names of your Drive motors into the motor groups below, separated by commas, i.e. motor_group(Motor1,Motor2,Motor3).
 //You will input whatever motor names you chose when you configured your robot using the sidebar configurer, they don't have to be "Motor1" and "Motor2".
 
 //Left Motors:
 motor_group(L1,L2,L3),
-
 //Right Motors:
 motor_group(R1,R2,R3),
 
@@ -77,7 +76,7 @@ PORT12,
 //External ratio, must be in decimal, in the format of input teeth/output teeth.
 //If your motor has an 84-tooth gear and your wheel has a 60-tooth gear, this value will be 1.4.
 //If the motor drives the wheel directly, this value is 1:
-36.0/48.0, //1.333 if its 48 first
+0.75, //1.333 if its 48 first
 
 //Gyro scale, this is what your gyro reads when you spin the robot 360 degrees.
 //For most cases 360 will do fine here, but this scale factor can be very helpful when precision is necessary.
@@ -106,21 +105,20 @@ PORT3,     -PORT4,
 PORT7,
 
 //Input the Forward Tracker diameter (reverse it to make the direction switch):
-2,
+3.25,
 
 //Input Forward Tracker center distance (a positive distance corresponds to a tracker on the right side of the robot, negative is left.)
 //For a zero tracker tank drive with odom, put the positive distance from the center of the robot to the right side of the drive.
 //This distance is in inches:
-0,
+6.1,
 
 //Input the Sideways Tracker Port, following the same steps as the Forward Tracker Port:
 PORT8,
 
 //Sideways tracker diameter (reverse to make the direction switch):
 -2,
-
 //Sideways tracker center distance (positive distance is behind the center of the robot, negative is in front):
--1.3
+0
 
 );
 
@@ -137,6 +135,7 @@ bool auto_started = false;
 void pre_auton() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+  InertialSens.calibrate();
   default_constants();
 
   while(!auto_started){
@@ -191,16 +190,18 @@ void pre_auton() {
  */
 
 void autonomous(void) {
+
+  //First_Auton();
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      drive_test();
+      full_test();
       break;
     case 1:         
-      drive_test();
+      First_Auton();
       break;
     case 2:
-      turn_test();
+      drive_test();
       break;
     case 3:
       swing_test();
@@ -218,6 +219,7 @@ void autonomous(void) {
       holonomic_odom_test();
       break; //dadada
  }
+ 
 }
 
 /*---------------------------------------------------------------------------*/
@@ -230,36 +232,48 @@ void autonomous(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void usercontrol(void) {
-  // User control code here, inside the loop
-  while (1) {
-
+  void usercontrol(void){
+  R1.setBrake(vex::brakeType::coast);
+  R2.setBrake(vex::brakeType::coast);
+  R3.setBrake(vex::brakeType::coast);
+  L1.setBrake(vex::brakeType::coast);
+  L2.setBrake(vex::brakeType::coast);
+  L3.setBrake(vex::brakeType::coast);
+  //type of drive mode, 1 = mustafa, 2 = Mohammed/Humaid
+  int DriveType = 1;
+  while (1){
+    //Intake
     if(Controller1.ButtonR2.pressing()){
-      ChainIntake.spin(forward,12,volt);
-      WheelIntake.spin(forward,12,volt);
+      Intake.spin(forward,12,volt);
     }
     else if (Controller1.ButtonR1.pressing()) {
-      ChainIntake.spin(reverse,12,volt);
-      WheelIntake.spin(reverse,12,volt);
+      Intake.spin(reverse,12,volt);
     }
     else{
-      ChainIntake.stop(brakeType::coast);
-      WheelIntake.stop(brakeType::coast);
-      ChainIntake.setBrake(coast);
-      WheelIntake.setBrake(coast);
+      Intake.stop(brakeType::coast);
+      Intake.setStopping(coast);
     }
-    // add anything that loops here alright bro
-    
+
+    //single press/single button things are in main
+
+    //choose a driveType
 
 
-    //Replace this line with chassis.control_tank(); for tank drive 
-    //or chassis.control_holonomic(); for holo drive.
-    chassis.control_tank();
+    // ----------------------- Drivetrain Control -----------------------
+        if (DriveType == 1) {
+             chassis.control_tank();   
+        } 
+        else if (DriveType == 2) {
+            chassis.control_arcade();
+        }
+        else {
+             chassis.control_tank();
+        }
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
-}
+  }
 
 //
 // Main will set up the competition functions and callbacks.
@@ -267,11 +281,22 @@ void usercontrol(void) {
  
 
 int main() {
- //USERCONTROL
- Controller1.ButtonL1.pressed([](){
-      HOOK.set(!HOOK.value());
+ //USERCONTROL for one press
+
+  //MogoMech
+  Controller1.ButtonRight.pressed([](){
+      MogoMech.set(!MogoMech.value());
+    });
+ 
+  //Arm Piston
+  Controller1.ButtonY.pressed([](){
+      ARMPiston.set(!ARMPiston.value());
     });
 
+  //Neutral Piston
+  Controller1.ButtonL1.pressed([](){
+      NeutralPiston.set(!NeutralPiston.value());
+    });
 
 
   // Set up callbacks for autonomous and driver control periods.

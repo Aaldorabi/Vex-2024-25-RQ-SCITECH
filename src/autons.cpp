@@ -10,13 +10,13 @@
 
 void default_constants(){
   // Each constant set is in the form of (maxVoltage, kP, kI, kD, startI).
-  chassis.set_drive_constants(12, 1.5, 0, 5, 0);
-  chassis.set_heading_constants(6, .4, 0, 1, 0);
-  chassis.set_turn_constants(12, .4, .03, 3, 15);
-  chassis.set_swing_constants(12, .3, .001, 2, 15);
+  chassis.set_drive_constants(12, .8, 0, 1, 5); //12, 0.8, 0.005, 0.85, 5
+  chassis.set_heading_constants(6, .2, 0, 1.2, 10);
+  chassis.set_turn_constants(12, 0.2, 0.01, 1, 10); //12, 0.2, 0.002, 0.85, 15
+  chassis.set_swing_constants(12,0.175,0.001,0.75,15); //  chassis.set_swing_constants(12, .3, .001, 2, 15);
 
   // Each exit condition set is in the form of (settle_error, settle_time, timeout).
-  chassis.set_drive_exit_conditions(1.5, 300, 5000);
+  chassis.set_drive_exit_conditions(1, 300, 5000);
   chassis.set_turn_exit_conditions(1, 300, 3000);
   chassis.set_swing_exit_conditions(1, 300, 3000);
 }
@@ -41,29 +41,22 @@ void odom_constants(){
  */
 
 void drive_test(){
-  /*chassis.drive_distance(24);
-  chassis.turn_to_angle(-90);
-  chassis.turn_to_angle(90);
-  chassis.turn_to_angle(-45);
-  chassis.turn_to_angle(45);
-  chassis.turn_to_angle(0);
-  chassis.drive_distance(-24);
-*/
-  //chassis.drive_to_point(24, 24);
-  //chassis.drive_to_pose(24, 12, 90);
-  chassis.drive_distance(24,0,12,12,2,500,2000);
-  chassis.drive_distance(-24);
+  chassis.drive_distance(6);
+  chassis.drive_distance(12);
+  chassis.drive_distance(18);
+  chassis.drive_distance(-36);
+
 }
 
 /**
  * The expected behavior is to return to the start angle, after making a complete turn.
  */
 
-void turn_test(){
-  chassis.turn_to_angle(5);
-  chassis.turn_to_angle(30);
+void First_Auton(){
   chassis.turn_to_angle(90);
-  chassis.turn_to_angle(225);
+  chassis.turn_to_angle(-90);
+  chassis.turn_to_angle(45);
+  chassis.turn_to_angle(-45);
   chassis.turn_to_angle(0);
 }
 
@@ -72,8 +65,11 @@ void turn_test(){
  */
 
 void swing_test(){
-  chassis.left_swing_to_angle(90);
-  chassis.right_swing_to_angle(0);
+  chassis.turn_to_angle(5);
+  chassis.turn_to_angle(30);
+  chassis.turn_to_angle(90);
+  chassis.turn_to_angle(225);
+  chassis.turn_to_angle(0);
 }
 
 /**
@@ -81,13 +77,15 @@ void swing_test(){
  */
 
 void full_test(){
-  chassis.drive_to_point(12, 12,6,12,12);
+
+  chassis.drive_distance(24,90,12,6);
+  /*chassis.drive_to_point(12, 12,6,12,12);
   chassis.drive_distance(24);
   chassis.turn_to_angle(-45);
   chassis.drive_distance(-36);
   chassis.right_swing_to_angle(-90);
   chassis.drive_distance(24);
-  chassis.turn_to_angle(0);
+  chassis.turn_to_angle(0);*/
 }
 
 /**

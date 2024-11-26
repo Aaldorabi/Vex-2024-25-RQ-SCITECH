@@ -10,12 +10,12 @@ extern motor L1;
 extern motor L2;
 extern motor L3;
 extern inertial InertialSens;
-extern digital_out HOOK;
+extern digital_out MogoMech;
 extern controller Controller1;
-extern rotation ForwardTracker;
 extern rotation SidewayTracker;
-extern motor ChainIntake;
-extern motor WheelIntake;
+extern digital_out ARMPiston;
+extern digital_out NeutralPiston;
+extern motor_group Intake;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
