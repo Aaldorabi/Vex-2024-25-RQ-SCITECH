@@ -8,11 +8,13 @@
  * exit conditions, check the docs.
  */
 
+ 
+
 void default_constants(){
   // Each constant set is in the form of (maxVoltage, kP, kI, kD, startI).
   chassis.set_drive_constants(12, .8, 0, 1, 5); //12, 0.8, 0.005, 0.85, 5
   chassis.set_heading_constants(6, .2, 0, 1.2, 10);
-  chassis.set_turn_constants(12, 0.2, 0.01, 1, 10); //12, 0.2, 0.002, 0.85, 15
+  chassis.set_turn_constants(12, 0.2, 0.005, 1, 10); //12, 0.2, 0.002, 0.85, 15
   chassis.set_swing_constants(12,0.175,0.001,0.75,15); //  chassis.set_swing_constants(12, .3, .001, 2, 15);
 
   // Each exit condition set is in the form of (settle_error, settle_time, timeout).
@@ -41,10 +43,7 @@ void odom_constants(){
  */
 
 void drive_test(){
-  chassis.drive_distance(6);
-  chassis.drive_distance(12);
-  chassis.drive_distance(18);
-  chassis.drive_distance(-36);
+  chassis.drive_to_point(-12, 48,0,6,12);
 
 }
 
@@ -75,17 +74,175 @@ void swing_test(){
 /**
  * A little of this, a little of that; it should end roughly where it started.
  */
+void Right_Side_1P(){
+  chassis.drive_distance(-24,-35,12,3);
+  MogoMech.set(false);
+  chassis.drive_distance(-12,-35,4,6);
+  MogoMech.set(true);
+  Intake.spin(forward,12,volt);
+  wait(250, msec);
+  chassis.drive_distance(-16,-45,4,6);
+  Intake.stop(coast);
+}
 
-void full_test(){
+void Left_Side_1P(){
+  chassis.drive_distance(-24,35,12,3);
+  MogoMech.set(false);
+  chassis.drive_distance(-12,35,4,6);
+  MogoMech.set(true);
+  Intake.spin(forward,12,volt);
+  wait(250, msec);
+  chassis.drive_distance(-16,45,4,6);
+  Intake.stop(coast);
+}
 
-  chassis.drive_distance(24,90,12,6);
-  /*chassis.drive_to_point(12, 12,6,12,12);
-  chassis.drive_distance(24);
-  chassis.turn_to_angle(-45);
-  chassis.drive_distance(-36);
-  chassis.right_swing_to_angle(-90);
-  chassis.drive_distance(24);
-  chassis.turn_to_angle(0);*/
+void Right_Red_Alliance_Stake_1(){
+
+  //turn to wallstake and raise arm and neutral mech
+  wait(100, msec);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.turn_to_angle(-50,12,2,150,1750);
+
+  //drive to wallstake and score
+  chassis.drive_distance(10,-50,4,6,1,200,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-30,-90,12,12,1,0,2500);
+  chassis.drive_distance(-18,-50,6,12,1,150,1500);
+  ARMPiston.set(false);
+  MogoMech.set(true);
+
+  //go to donut and intake
+  chassis.turn_to_angle(-170,12,3,25,1250);
+  Intake.spin(forward,12,volt);
+  chassis.drive_distance(14,-165,4,12,2,150,2500);
+
+  // go to bar and touch it
+  chassis.turn_to_angle(0,12,1,25,1250);
+  Intake.stop();
+  chassis.drive_distance(16,0,12,12,1,0,1500);
+  chassis.drive_distance(22,45,6,12,1,100,2000);
+
+}
+
+void Left_Red_Alliance_Stake_1(){
+  //turn to wallstake and raise arm and neutral mech
+  wait(100, msec);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.turn_to_angle(50,12,2,150,1750);
+
+  //drive to wallstake and score
+  chassis.drive_distance(10,50,4,6,1,200,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-30,90,12,12,1,0,2500);
+  chassis.drive_distance(-18,50,6,12,1,150,1500);
+  ARMPiston.set(false);
+  MogoMech.set(true);
+
+  //go to donut and intake
+  chassis.turn_to_angle(170,12,3,25,1250);
+  Intake.spin(forward,12,volt);
+  chassis.drive_distance(14,165,4,12,2,150,2500);
+
+  // go to bar and touch it
+  chassis.turn_to_angle(0,12,1,25,1250);
+  Intake.stop();
+  chassis.drive_distance(16,0,12,12,1,0,1500);
+  chassis.drive_distance(22,45,6,12,1,100,2000);
+}
+
+void Left_Red_Alliance_Stake_2(){
+  //turn to wallstake and raise arm and neutral mech
+  wait(100, msec);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.turn_to_angle(50,12,2,150,1750);
+
+  //drive to wallstake and score
+  chassis.drive_distance(10,50,4,6,1,200,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-30,90,12,12,1,0,2500);
+  chassis.drive_distance(-18,50,6,12,1,150,1500);
+  ARMPiston.set(false);
+  MogoMech.set(true);
+
+  //go to donut and intake
+  chassis.turn_to_angle(170,12,3,25,1250);
+  Intake.spin(forward,12,volt);
+  chassis.drive_distance(14,165,4,12,2,150,2500);
+
+  //Intake alliance line donut
+  chassis.turn_to_angle(-90,12,1,150,1500);
+  chassis.drive_distance(10,-90,4,12,1,0,1500);
+  chassis.drive_distance(-10,-90,6,12,1,50,1500);
+
+  // go to bar and touch it
+  chassis.turn_to_angle(0,12,1,25,1250);
+  chassis.drive_distance(16,0,12,12,1,0,1500);
+  chassis.drive_distance(22,-45,6,12,1,100,2000);
+  Intake.stop();
+}
+
+void Left_Red_Alliance_Stake_3(){
+  //turn to wallstake and raise arm and neutral mech
+  wait(100, msec);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.drive_distance(9.5);
+  chassis.turn_to_angle(70,12,2,150,1750);
+
+  //drive to wallstake and score
+  chassis.drive_distance(4.5,70,4,6,1,200,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-20,55,12,12,1,100,2500);
+  chassis.drive_distance(-12.5,55,6,12,1,150,1500);
+  //chassis.drive_distance(-18,50,6,12,1,150,1500);
+  ARMPiston.set(false);
+  MogoMech.set(true);
+
+  //go to donut and intake
+  chassis.turn_to_angle(170,12,3,25,1250);
+  Intake.spin(forward,12,volt);
+  chassis.drive_distance(14,165,6,12,2,150,2500);
+
+  //Intake alliance line donut
+  chassis.turn_to_angle(-90,12,1,150,1500);
+  chassis.drive_distance(10,-90,6,12,1,0,1500);
+  chassis.drive_distance(-10,-90,4,12,1,50,1500);
+  wait(750, msec);
+
+  //Intake the other one next to it
+  //turn to it then drive forward and intake it then go back
+  chassis.turn_to_angle(-100);
+  chassis.drive_distance(15,-100,6,12,1,300,1500);
+  chassis.drive_distance(-15,-100,4,12,1,0,1500);
+
+  // go to bar and touch it
+  chassis.turn_to_angle(0,12,1,25,1250);
+  chassis.drive_distance(18,0,12,12,4,0,1500);
+  chassis.drive_distance(22,-45,6,12,1,100,2000);
+  Intake.stop();
+}
+
+void Right_Red_Alliance_Solo_AWP(){
+
 }
 
 /**

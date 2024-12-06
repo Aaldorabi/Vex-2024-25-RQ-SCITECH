@@ -23,6 +23,7 @@ digital_out NeutralPiston = digital_out(Brain.ThreeWirePort.C);
 motor IntakeMotorA = motor(PORT9, ratio18_1, true);
 motor IntakeMotorB = motor(PORT7, ratio18_1, false);
 motor_group Intake = motor_group(IntakeMotorA, IntakeMotorB);
+rotation ForwardTracker = rotation(PORT11, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

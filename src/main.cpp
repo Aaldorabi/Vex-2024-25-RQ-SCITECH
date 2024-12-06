@@ -17,6 +17,7 @@
 // ARMPiston            digital_out   A               
 // NeutralPiston        digital_out   C               
 // Intake               motor_group   9, 7            
+// ForwardTracker       rotation      11              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -80,7 +81,7 @@ PORT12,
 
 //Gyro scale, this is what your gyro reads when you spin the robot 360 degrees.
 //For most cases 360 will do fine here, but this scale factor can be very helpful when precision is necessary.
-360,
+359.15,
 
 /*---------------------------------------------------------------------------*/
 /*                                  PAUSE!                                   */
@@ -102,15 +103,15 @@ PORT3,     -PORT4,
 //If you are using position tracking, this is the Forward Tracker port (the tracker which runs parallel to the direction of the chassis).
 //If this is a rotation sensor, enter it in "PORT1" format, inputting the port below.
 //If this is an encoder, enter the port as an integer. Triport A will be a "1", Triport B will be a "2", etc.
-PORT7,
+PORT11,
 
 //Input the Forward Tracker diameter (reverse it to make the direction switch):
-3.25,
+2,
 
 //Input Forward Tracker center distance (a positive distance corresponds to a tracker on the right side of the robot, negative is left.)
 //For a zero tracker tank drive with odom, put the positive distance from the center of the robot to the right side of the drive.
 //This distance is in inches:
-6.1,
+-2,
 
 //Input the Sideways Tracker Port, following the same steps as the Forward Tracker Port:
 PORT8,
@@ -190,12 +191,12 @@ void pre_auton() {
  */
 
 void autonomous(void) {
-
+  /* set up stuff like motor brakings and whatnot*/
   //First_Auton();
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      full_test();
+      Left_Red_Alliance_Stake_3();
       break;
     case 1:         
       First_Auton();
@@ -207,7 +208,7 @@ void autonomous(void) {
       swing_test();
       break;
     case 4:
-      full_test();
+      Left_Side_1P();
       break;
     case 5:
       odom_test();
@@ -305,7 +306,7 @@ int main() {
 
   // Run the pre-autonomous function.
 
-  pre_auton(); //i have commented out so i can see brain screen 🤙🏿
+  pre_auton(); //i have commented out so i can see brain screen
 
   // Prevent main from exiting with an infinite loop.
   while (true) {  
