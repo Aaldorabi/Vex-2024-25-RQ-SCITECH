@@ -25,3 +25,4 @@ void Left_Red_Alliance_Stake_2();
 
 void Left_Red_Alliance_Stake_3();
 void Right_Red_Alliance_Solo_AWP();
+void Entire_Field_AWP();

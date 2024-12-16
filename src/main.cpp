@@ -240,7 +240,7 @@ void autonomous(void) {
   L1.setBrake(vex::brakeType::coast);
   L2.setBrake(vex::brakeType::coast);
   L3.setBrake(vex::brakeType::coast);
-  //type of drive mode, 1 = mustafa, 2 = Mohammed/Humaid
+  //type of drive mode, 1 = mustafa, 2 = Mohammed/Fatima
   int DriveType = 1;
   while (1){
     //Intake
