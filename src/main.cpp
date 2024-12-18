@@ -196,7 +196,7 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      Left_Red_Alliance_Stake_3();
+      Right_Red_Rush();
       break;
     case 1:         
       First_Auton();
