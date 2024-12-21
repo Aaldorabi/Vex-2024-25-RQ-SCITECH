@@ -199,16 +199,16 @@ void autonomous(void) {
       Right_Red_Rush();
       break;
     case 1:         
-      First_Auton();
+      Right_Blue_Alliance_Stake_1();
       break;
     case 2:
-      drive_test();
+      Right_Red_Alliance_Stake_1();
       break;
     case 3:
       swing_test();
       break;
     case 4:
-      Left_Side_1P();
+      swing_test();
       break;
     case 5:
       odom_test();
