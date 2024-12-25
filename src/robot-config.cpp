@@ -14,7 +14,7 @@ motor R3 = motor(PORT3, ratio6_1, false);
 motor L1 = motor(PORT4, ratio6_1, true);
 motor L2 = motor(PORT5, ratio6_1, true);
 motor L3 = motor(PORT6, ratio6_1, true);
-inertial InertialSens = inertial(PORT12);
+inertial InertialSens = inertial(PORT20);
 digital_out MogoMech = digital_out(Brain.ThreeWirePort.B);
 controller Controller1 = controller(primary);
 rotation SidewayTracker = rotation(PORT8, false);
@@ -24,6 +24,7 @@ motor IntakeMotorA = motor(PORT9, ratio18_1, true);
 motor IntakeMotorB = motor(PORT7, ratio18_1, false);
 motor_group Intake = motor_group(IntakeMotorA, IntakeMotorB);
 rotation ForwardTracker = rotation(PORT11, false);
+motor Motor13 = motor(PORT13, ratio18_1, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

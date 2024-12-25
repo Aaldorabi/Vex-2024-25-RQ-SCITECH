@@ -10,7 +10,7 @@
 // L1                   motor         4               
 // L2                   motor         5               
 // L3                   motor         6               
-// InertialSens         inertial      12              
+// InertialSens         inertial      20              
 // MogoMech             digital_out   B               
 // Controller1          controller                    
 // SidewayTracker       rotation      8               
@@ -18,6 +18,7 @@
 // NeutralPiston        digital_out   C               
 // Intake               motor_group   9, 7            
 // ForwardTracker       rotation      11              
+// Motor13              motor         13              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 using namespace vex;
@@ -149,34 +150,72 @@ void pre_auton() {
     Brain.Screen.printAt(5, 120, "Selected Auton:");
     switch(current_auton_selection){
       case 0:
-        Brain.Screen.printAt(5, 140, "Auton 1");
+        Brain.Screen.printAt(5, 140, " Left_Red_Alliance_Stake_3");
         break;
       case 1:
-        Brain.Screen.printAt(5, 140, "Auton 2");
+        Brain.Screen.printAt(5, 140, "Left_Red_Alliance_Stake_3");
         break;
       case 2:
-        Brain.Screen.printAt(5, 140, "Auton 3");
+        Brain.Screen.printAt(5, 140, "Left_Red_Alliance_Stake_2");
         break;
       case 3:
-        Brain.Screen.printAt(5, 140, "Auton 4");
+        Brain.Screen.printAt(5, 140, "Left_Red_Alliance_Stake_1");
         break;
       case 4:
-        Brain.Screen.printAt(5, 140, "Auton 5");
+        Brain.Screen.printAt(5, 140, "Right_Red_Stake");
         break;
       case 5:
-        Brain.Screen.printAt(5, 140, "Auton 6");
+        Brain.Screen.printAt(5, 140, "Right_Red_Rush");
         break;
       case 6:
-        Brain.Screen.printAt(5, 140, "Auton 7");
+        Brain.Screen.printAt(5, 140, "Left_Blue_Rush");
         break;
       case 7:
-        Brain.Screen.printAt(5, 140, "Auton 8");
+        Brain.Screen.printAt(5, 140, "Right_Blue_Stake_3");
         break;
+      case 8:
+        Brain.Screen.printAt(5, 140, "Right_Blue_Stake_2");
+        break;
+      case 9:
+        Brain.Screen.printAt(5, 140, "Right_Blue_Stake_1");
+        break;
+      case 10:
+        Brain.Screen.printAt(5, 140, "Right_Blue_Stake");
+        break;
+      case 11:
+        Brain.Screen.printAt(5, 140, "Entire_Field_AWP");
+        break;
+      case 12:
+        Brain.Screen.printAt(5, 140, "S_Skills");
+        break;
+      case 13:
+        Brain.Screen.printAt(5, 140, "Nothing");
+        break;
+      case 14:
+        Brain.Screen.printAt(5, 140, "Left Red Stake");
+        break;
+      case 15:
+        Brain.Screen.printAt(5, 140, "Right Red Stake");
+        break;
+      case 16:
+        Brain.Screen.printAt(5, 140, "Right Side Red");
+        break;
+      case 17:
+        Brain.Screen.printAt(5, 140, "Left Side Red");
+        break;
+      case 18:
+        Brain.Screen.printAt(5, 140, "Right Side Blue");
+        break;
+      case 19:
+        Brain.Screen.printAt(5, 140, "Left Side Blue");
+        break;
+
+        
     }
     if(Brain.Screen.pressing()){
       while(Brain.Screen.pressing()) {}
       current_auton_selection ++;
-    } else if (current_auton_selection == 8){
+    } else if (current_auton_selection == 20){
       current_auton_selection = 0;
     }
     task::sleep(10);
@@ -194,31 +233,68 @@ void autonomous(void) {
   /* set up stuff like motor brakings and whatnot*/
   //First_Auton();
   auto_started = true;
-  switch(current_auton_selection){ 
+  switch(current_auton_selection){ //اخشوشن
+                                  //
     case 0:
-      Right_Red_Rush();
+      Left_Red_Alliance_Stake_3();
       break;
-    case 1:         
-      Right_Blue_Alliance_Stake_1();
+    case 1:
+      Left_Red_Alliance_Stake_3();
       break;
-    case 2:
-      Right_Red_Alliance_Stake_1();
+    case 2:         
+      Left_Red_Alliance_Stake_2();
       break;
     case 3:
-      swing_test();
+      Left_Red_Alliance_Stake_1();
       break;
     case 4:
-      swing_test();
+      Right_Red_Stake();
       break;
     case 5:
-      odom_test();
+      Right_Red_Rush();
       break;
     case 6:
-      tank_odom_test();
+      Left_Blue_Rush();
       break;
     case 7:
-      holonomic_odom_test();
-      break; //dadada
+      Right_Blue_Stake_3();
+      break;
+    case 8:
+      Right_Blue_Stake_2();
+      break;
+    case 9:
+      Right_Blue_Stake_1();
+      break;
+    case 10:
+      Right_Blue_Stake();
+      break;
+    case 11:
+      Entire_Field_AWP();
+      break;
+    case 12:
+      S_Skills();
+      break;
+    case 13:
+      Nothing();
+      break;
+    case 14:
+      Left_Red_Stake();
+      break;
+    case 15:
+      Right_Red_Stake();
+      break;
+    case 16:
+      Right_Side_Red();
+      break;
+    case 17:
+      Left_Side_Red();
+      break;
+    case 18:
+      Right_Side_Blue();
+      break;
+    case 19:
+      Left_Side_Blue();
+      break;
  }
  
 }

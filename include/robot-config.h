@@ -17,6 +17,7 @@ extern digital_out ARMPiston;
 extern digital_out NeutralPiston;
 extern motor_group Intake;
 extern rotation ForwardTracker;
+extern motor Motor13;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

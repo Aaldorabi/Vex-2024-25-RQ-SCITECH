@@ -71,22 +71,276 @@ void swing_test(){
   chassis.turn_to_angle(0);
 }
 
+
+
+//salama bint jamal mohammed alhammadi
+
+void Right_Side_Blue(){
+  //moves backwards from starting position and takes the mobile goal
+chassis.drive_distance(-10.5,-32.5,12,6,1,0,1500);
+chassis.drive_distance(-27,-32.5,12,6,2,0,2000);
+MogoMech.set(true);
+
+//moves backwards and forward to ensure mogo is grabbed right
+chassis.drive_distance(-6,-35, 12, 6, 2, 0, 1500);
+chassis.drive_distance(6, -35, 12, 6, 2, 100, 1500);  
+
+//turns so that the intake is facing straight with the stacked rings and starts spinning the hooks for the preload to score
+chassis.turn_to_angle(-90,12,2,50,1500);
+Intake.spin(fwd,12,volt);
+
+//moves forward but waits so one of the stacked rings dont fly away while intaking 
+chassis.drive_distance(25, -90, 6, 6, 1, 250, 1500);
+wait(1500,msec);
+
+//turns back to face the bar and spins the intake in reverse to fly out any extra rings
+chassis.turn_to_angle(90, 12, 3, 300, 1500);
+Intake.spin(reverse,12,volt);
+
+//releases the mobile goal while moving forward towards the bar 
+chassis.drive_distance(10, 90, 12, 6, 2, 0 ,1500);
+MogoMech.set(false);
+
+//moves forward while slowly turning at a specific angle to face the bar
+chassis.drive_distance(29, 135, 12, 6, 1, 0, 1500);
+Intake.stop();
+
+//moves forward to finally touch the bar
+chassis.drive_distance(10, 135, 12, 6, 1, 300, 2000);
+
+}
+
+void Left_Side_Blue(){
+  //moves backwards from starting position and takes the mobile goal
+chassis.drive_distance(-17.5, 32.5, 12, 6, 1, 0, 1500);
+chassis.drive_distance(-27, 32.5, 12, 6, 2, 0, 2000);
+MogoMech.set(true);
+
+//moves backwards and forward to ensure mogo is grabbed right
+chassis.drive_distance(-6, 35, 12, 6, 2, 0, 1500);
+chassis.drive_distance(7, 35, 12, 6, 2, 100, 1500);  
+
+//turns so that the intake is facing straight with the stacked rings and starts spinning the hooks for the preload to score
+chassis.turn_to_angle(90, 12, 2, 50, 1500);
+Intake.spin(fwd, 12, volt);
+
+//moves forward but waits so one of the stacked rings don't fly away while intaking 
+chassis.drive_distance(25, 90, 6, 6, 1, 250, 1500);
+wait(1500, msec);
+
+//turns back to face the bar and spins the intake in reverse to fly out any extra rings
+chassis.turn_to_angle(-90, 12, 3, 300, 1500);
+Intake.spin(reverse, 12, volt);
+
+//releases the mobile goal while moving forward towards the bar 
+chassis.drive_distance(10, -90, 12, 6, 2, 0 ,1500);
+MogoMech.set(false);
+
+//moves forward while slowly turning at a specific angle to face the bar
+chassis.drive_distance(29, -135, 12, 6, 1, 0, 1500);
+Intake.stop();
+
+//moves forward to finally touch the bar
+chassis.drive_distance(10, -135, 12, 6, 1, 300, 2000);
+}
+
+void Right_Side_Red(){
+  //moves backwards from starting position and takes the mobile goal
+chassis.drive_distance(-14.5,-32.5,12,6,1,0,1500);
+chassis.drive_distance(-27,-32.5,12,6,2,0,2000);
+MogoMech.set(true);
+
+//moves backwards and forward to ensure mogo is grabbed right
+chassis.drive_distance(-8,-35, 12, 6, 2, 0, 1500);
+chassis.drive_distance(7, -35, 12, 6, 2, 100, 1500);  
+
+//turns so that the intake is facing straight with the stacked rings and starts spinning the hooks for the preload to score
+chassis.turn_to_angle(-90,12,2,50,1500);
+Intake.spin(fwd,12,volt);
+
+//moves forward but waits so one of the stacked rings dont fly away while intaking 
+chassis.drive_distance(25, -90, 6, 6, 1, 250, 1500);
+wait(1500,msec);
+
+//turns back to face the bar and spins the intake in reverse to fly out any extra rings
+chassis.turn_to_angle(90, 12, 3, 300, 1500);
+Intake.spin(reverse,12,volt);
+
+//releases the mobile goal while moving forward towards the bar 
+chassis.drive_distance(10, 90, 12, 6, 2, 0 ,1500);
+MogoMech.set(false);
+
+//moves forward while slowly turning at a specific angle to face the bar
+chassis.drive_distance(29, 135, 12, 6, 1, 0, 1500);
+Intake.stop();
+
+//moves forward to finally touch the bar
+chassis.drive_distance(10, 135, 12, 6, 1, 300, 2000);
+}
+
+void Left_Side_Red(){
+  //moves backwards from starting position and takes the mobile goal
+chassis.drive_distance(-10.5, 32.5, 12, 6, 1, 0, 1500);
+chassis.drive_distance(-27, 32.5, 12, 6, 2, 0, 2000);
+MogoMech.set(true);
+
+//moves backwards and forward to ensure mogo is grabbed right
+chassis.drive_distance(-6, 35, 12, 6, 2, 0, 1500);
+chassis.drive_distance(6, 35, 12, 6, 2, 100, 1500);  
+
+//turns so that the intake is facing straight with the stacked rings and starts spinning the hooks for the preload to score
+chassis.turn_to_angle(90, 12, 2, 50, 1500);
+Intake.spin(fwd, 12, volt);
+
+//moves forward but waits so one of the stacked rings don't fly away while intaking 
+chassis.drive_distance(25, 90, 6, 6, 1, 250, 1500);
+wait(1500, msec);
+
+//turns back to face the bar and spins the intake in reverse to fly out any extra rings
+chassis.turn_to_angle(-90, 12, 3, 300, 1500);
+Intake.spin(reverse, 12, volt);
+
+//releases the mobile goal while moving forward towards the bar 
+chassis.drive_distance(10, -90, 12, 6, 2, 0 ,1500);
+MogoMech.set(false);
+
+//moves forward while slowly turning at a specific angle to face the bar
+chassis.drive_distance(29, -135, 12, 6, 1, 0, 1500);
+Intake.stop();
+
+//moves forward to finally touch the bar
+chassis.drive_distance(10, -135, 12, 6, 1, 300, 2000);
+}
+
+void S_Skills(){
+  //scores preload in alliance stake
+Intake.spin(forward, 12, volt);
+wait(250, msec);
+
+//moves forward and angles the mogo mech to the mobile goal
+chassis.drive_distance(10, 0, 12, 6, 0.5, 0, 1500);   
+chassis.turn_to_angle(-90,12, 1, 50, 2000);
+
+//moves backwards and captures the mobile goal
+chassis.drive_distance(-17, -90, 12, 6, 1, 50, 2500);   
+MogoMech.set(true);
+
+//drives a bit backwards and turns to an angle that faces the ring under the ladder
+chassis.drive_distance(-7, -90, 12, 6, 1, 0, 1500);
+chassis.turn_to_angle(-5, 12, 2, 0, 2000);
+
+//drives backwards and hits the mobile goal on the wall
+chassis.drive_distance(-12, -5, 12, 12, 1, 0, 2000);
+
+//drives forward, intakes the ring, then drives a bit backwards
+chassis.drive_distance(32, -5, 10, 6, 2, 150, 1500);
+chassis.drive_distance(-5); 
+
+//angles the robot to face the ring under the ladder and drives forward to intake it
+chassis.turn_to_angle(-45, 12, 1, 0, 1500);
+chassis.drive_distance(37, -45, 10, 6, 1, 150, 2500);
+
+//turns to face the other ring on the blue side of the field and moves forward to intake the ring
+chassis.turn_to_angle(45, 12, 1, 0, 2500);
+chassis.drive_distance(33, 45, 12, 6, 2,0 ,2500);
+
+//turns to face the ring in front of it and drives forward to intake it
+chassis.turn_to_angle(95, 12, 2, 0, 2000);
+chassis.drive_distance(31, 95, 12, 6, 1, 1500, 2500);
+
+//turns to face the ring in front of the wall stake and drives forward to intake it
+chassis.turn_to_angle(180, 12, 1, 100, 2500);
+chassis.drive_distance(26, 180, 12, 6, 1, 0, 2500);
+
+//turns face one of the red rings under the blue rings and drives forward to intake it
+chassis.turn_to_angle(5, 12, 1, 150, 1500);
+chassis.drive_distance(60, 5, 12, 6, 2, 1500, 4500);
+
+chassis.turn_to_angle(-135, 12,1,150,2000);
+MogoMech.set(false);
+Intake.spin(reverse, 12, volt); 
+
+chassis.drive_distance(6);
+chassis.turn_to_angle(40,12,1,150,2000);
+chassis.drive_distance(24,40,12,6,1,0,2500);
+chassis.drive_distance(-24,40,12,6,1,0,2500);
+chassis.drive_distance(24,40,12,6,1,0,2500);
+chassis.drive_distance(-24, 90);
+chassis.drive_distance(-5);
+}
+
+
+//Ahmed Ali Abdelrahman Ismail Aldorabi Alzarooni//
+
+
 /**
  * A little of this, a little of that; it should end roughly where it started.
  */
 void Right_Red_Stake(){
   //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(-72.5,12,3,50,1750);
+  chassis.turn_to_angle(-78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,-72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(4.75,-78.5,12,6,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-13,-55,12,12,1,0,2500); 
+  chassis.drive_distance(-27,-55,6,12,1,100,1500); 
+  ARMPiston.set(false);
+  MogoMech.set(true);
+  wait(100, msec);
+
+  //go to black bar and turn on arm
+  chassis.turn_to_angle(0,12,1,150,2500);
+  chassis.drive_distance(11,45,12,6,1,100,2500);
+  chassis.drive_distance(7,45,12,6,1,0,2000);
+}
+
+
+
+void Right_Red_Alliance_Stake_1(){
+  //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
+  chassis.turn_to_angle(-78.5,12,2,50,1750);
+  Intake.stop();
+
+  //drive to wallstake and score
+  chassis.drive_distance(4.75,-78.5,12,6,0.5,50,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-10,-55,12,12,1,0,2500); //-14
+  chassis.drive_distance(-28,-55,6,12,1,100,1500); //3 volts //-25in
+  //chassis.drive_distance(-18,50,6,12,1,150,1500);
+  ARMPiston.set(false);
+  MogoMech.set(true);
+  wait(100, msec);
+  //go to donut and intake
+  Intake.spin(fwd,12,volt);
+  chassis.turn_to_angle(180,12,2,50,2000);
+  chassis.drive_distance(21.5,180,6,12,1,750,2500);//
+
+  
+
+  MogoMech.set(false);
+  Intake.spin(fwd,12,volt);
+  chassis.drive_distance(-20,45,12,6,1,0,2000);
+  Intake.stop();
+  Intake.spin(reverse);
+  chassis.drive_distance(15,45,12,6,1,300,2000);
 
   R1.setBrake(vex::brakeType::brake);
   R2.setBrake(vex::brakeType::brake);
@@ -98,92 +352,55 @@ void Right_Red_Stake(){
   //chassis.drive_distance(4,-45,12,6,1,200,2000);
   chassis.drive_stop(brake);
   Intake.stop();
-}
-
-
-
-void Right_Red_Alliance_Stake_1(){
-
-  //turn to wallstake and raise arm and neutral mech
-  MogoMech.set(false);
-  ARMPiston.set(true);
-  NeutralPiston.set(true);
-  chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(-72.5,12,3,50,1750);
-  Intake.stop();
-
-  //drive to wallstake and score
-  chassis.drive_distance(5.25,-72.5,12,6,0.5,50,1500);//5.5in
-  NeutralPiston.set(false);
-  wait(500, msec);
-
-  //go to mobile goal and grab it
-  chassis.drive_distance(-13,-55,12,12,1,0,2500); //-14
-  chassis.drive_distance(-27,-55,6,12,1,100,1500); //3 volts //-25in
-  //chassis.drive_distance(-18,50,6,12,1,150,1500);
-  ARMPiston.set(false);
-  MogoMech.set(true);
-  wait(100, msec);
-  //go to donut and intake
-  Intake.spin(fwd,12,volt);
-  chassis.turn_to_angle(180,12,2,50,2000);
-  chassis.drive_distance(19.5,180,12,12,1,300,2500);
-  
-
-  chassis.drive_distance(-12,180,12,6,2,0,2000);
-  MogoMech.set(false);
-  Intake.spin(reverse,12,volt);
-  chassis.drive_distance(-35,45,12,6,2,0,2000);
-  Intake.stop();
-  chassis.drive_distance(13,45,12,6,1,300,2000);
-
-  R1.setBrake(vex::brakeType::brake);
-  R2.setBrake(vex::brakeType::brake);
-  R3.setBrake(vex::brakeType::brake);
-  L1.setBrake(vex::brakeType::brake);
-  L2.setBrake(vex::brakeType::brake);
-  L3.setBrake(vex::brakeType::brake);
-
-  chassis.drive_stop(brake);
-  Intake.stop();
 
 }
 
 void Left_Red_Stake(){
   //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(72.5,12,3,50,1750);
+  chassis.turn_to_angle(78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(4.75,78.5,12,6,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
-  chassis.drive_distance(-13,55,12,12,1,0,2500); //-14
+  chassis.drive_distance(-13,55,12,12,1,0,2500); 
+  chassis.drive_distance(-27,55,6,12,1,100,1500); 
+  ARMPiston.set(false);
+  MogoMech.set(true);
+  wait(100, msec);
+
+  //go to black bar and turn on arm
+  chassis.turn_to_angle(0,12,1,150,2500);
+  chassis.drive_distance(11,-45,12,6,1,100,2500);
+  chassis.drive_distance(7,-45,12,6,1,0,2000);
 }
 
 void Left_Red_Alliance_Stake_1(){
   //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(72.5,12,3,50,1750);
+  chassis.turn_to_angle(78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(4.75,78.5,12,6,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
-  chassis.drive_distance(-13,55,12,12,1,0,2500); //-14
-  chassis.drive_distance(-27,55,6,12,1,100,1500); //3 volts //-25in
+  chassis.drive_distance(-10,55,12,12,1,0,2500); //-14
+  chassis.drive_distance(-28,55,6,12,1,100,1500); //3 volts //-25in
   //chassis.drive_distance(-18,50,6,12,1,150,1500);
   ARMPiston.set(false);
   MogoMech.set(true);
@@ -191,16 +408,17 @@ void Left_Red_Alliance_Stake_1(){
   //go to donut and intake
   Intake.spin(fwd,12,volt);
   chassis.turn_to_angle(180,12,2,50,2000);
-  chassis.drive_distance(19.5,180,12,12,1,300,2500);//
+  chassis.drive_distance(21.5,180,6,12,1,750,2500);//
 
   
 
-  chassis.drive_distance(-12,180,12,6,2,0,2000);
   MogoMech.set(false);
-  Intake.spin(reverse,12,volt);
-  chassis.drive_distance(-35,-45,12,6,2,0,2000);
+  Intake.spin(fwd,12,volt);
+  chassis.drive_distance(-20,-45,12,6,1,0,2000);
   Intake.stop();
-  chassis.drive_distance(13,-45,12,6,1,300,2000);
+  Intake.spin(reverse);
+  chassis.drive_distance(18,-45,12,6,1,100,2000);
+  chassis.drive_distance(6,-45,12,6,1,300,2000);
 
   R1.setBrake(vex::brakeType::brake);
   R2.setBrake(vex::brakeType::brake);
@@ -274,51 +492,45 @@ void Left_Red_Alliance_Stake_3(){
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(72.5,12,3,50,1750);
+  chassis.turn_to_angle(78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(5.25,78.5,12,6,0.5,50,1500);//5.5in
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
   chassis.drive_distance(-13,55,12,12,1,0,2500); //-14
   chassis.drive_distance(-27,55,6,12,1,100,1500); //3 volts //-25in
-  //chassis.drive_distance(-18,50,6,12,1,150,1500);
   ARMPiston.set(false);
   MogoMech.set(true);
   wait(100, msec);
   //go to donut and intake
   Intake.spin(fwd,12,volt);
   chassis.turn_to_angle(180,12,2,50,2000);
-  chassis.drive_distance(19.5,180,12,12,1,300,2500);//
+  chassis.drive_distance(17.5,180,12,12,1,50,2500);//
 
   //Intake alliance line donut
   chassis.turn_to_angle(-90,6,1,25,1500);
   Intake.spin(reverse,12,volt);
-  wait(250, msec);
+  wait(150, msec);  
   Intake.spin(fwd,12,volt);
-  chassis.drive_distance(12,-90,6,6,1,999,1500); 
-
-
+  chassis.drive_distance(12,-90,6,6,1,500,1500); 
 
   chassis.drive_distance(-4,-45,12,6,1,0,1500);//-4
   chassis.drive_distance(-6,-45,12,6,1,0,2000);
   chassis.drive_distance(-6,-90,12,6,1,0,2500);//-8
   Intake.spin(reverse,12,volt);
-  wait(250, msec);
+  wait(150, msec);
   Intake.spin(fwd,12,volt);
-  chassis.drive_distance(12,-90,6,6,0.5,200,1500);//we are splitting this into two parts, so that it can outtake midway //11in
-  
-
-  chassis.drive_distance(-12,180,12,6,2,0,2000);
+  chassis.drive_distance(13,-90,6,6,0.5,200,1500);//we are splitting this into two parts, so that it can outtake midway //11in
+  chassis.drive_distance(-13,180,12,6,2,0,2000);
   MogoMech.set(false);
-  Intake.spin(reverse,12,volt);
   chassis.drive_distance(-35,-45,12,6,2,0,2000);
-  Intake.stop();
+  Intake.spin(reverse,12,volt);
   chassis.drive_distance(13,-45,12,6,1,300,2000);
-
+  Intake.stop();
   R1.setBrake(vex::brakeType::brake);
   R2.setBrake(vex::brakeType::brake);
   R3.setBrake(vex::brakeType::brake);
@@ -326,27 +538,65 @@ void Left_Red_Alliance_Stake_3(){
   L2.setBrake(vex::brakeType::brake);
   L3.setBrake(vex::brakeType::brake);
 
-  //chassis.drive_distance(4,-45,12,6,1,200,2000);
   chassis.drive_stop(brake);
   Intake.stop();
 }
 
-void Right_Blue_Stake(){
+void Left_Blue_Stake(){
+  
   //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(-72.5,12,3,50,1750);
+  chassis.turn_to_angle(78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,-72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(4.75,78.5,12,6,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
-  chassis.drive_distance(-13,-55,12,12,1,0,2500); //-14
+  chassis.drive_distance(-13,55,12,12,1,0,2500); 
+  chassis.drive_distance(-27,55,6,12,1,100,1500); 
+  ARMPiston.set(false);
+  MogoMech.set(true);
+  wait(100, msec);
+
+  //go to black bar and turn on arm
+  chassis.turn_to_angle(0,12,1,150,2500);
+  chassis.drive_distance(11,-45,12,6,1,100,2500);
+  chassis.drive_distance(7,-45,12,6,1,0,2000);
+}
+
+void Right_Blue_Stake(){
+  //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
+  MogoMech.set(false);
+  ARMPiston.set(true);
+  NeutralPiston.set(true);
+  chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
+  chassis.turn_to_angle(-78.5,12,2,50,1750);
+  Intake.stop();
+
+  //drive to wallstake and score
+  chassis.drive_distance(4.75,-78.5,12,6,0.5,50,1500);
+  NeutralPiston.set(false);
+  wait(500, msec);
+
+  //go to mobile goal and grab it
+  chassis.drive_distance(-13,-55,12,12,1,0,2500); 
+  chassis.drive_distance(-27,-55,6,12,1,100,1500); 
+  ARMPiston.set(false);
+  MogoMech.set(true);
+  wait(100, msec);
+
+  //go to black bar and turn on arm
+  chassis.turn_to_angle(0,12,1,150,2500);
+  chassis.drive_distance(11,45,12,6,1,100,2500);
+  chassis.drive_distance(7,45,12,6,1,0,2000);
 }
 
 void Right_Blue_Stake_1(){
@@ -455,51 +705,45 @@ void Right_Blue_Stake_3(){
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(-72.5,12,3,50,1750);
+  chassis.turn_to_angle(-78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,-72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(5.25,-78.5,12,6,0.5,50,1500);//5.5in
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
   chassis.drive_distance(-13,-55,12,12,1,0,2500); //-14
   chassis.drive_distance(-27,-55,6,12,1,100,1500); //3 volts //-25in
-  //chassis.drive_distance(-18,50,6,12,1,150,1500);
   ARMPiston.set(false);
   MogoMech.set(true);
   wait(100, msec);
   //go to donut and intake
   Intake.spin(fwd,12,volt);
   chassis.turn_to_angle(180,12,2,50,2000);
-  chassis.drive_distance(19.5,180,12,12,1,300,2500);//
+  chassis.drive_distance(17.5,180,12,12,1,50,2500);//
 
   //Intake alliance line donut
   chassis.turn_to_angle(90,6,1,25,1500);
   Intake.spin(reverse,12,volt);
-  wait(250, msec);
+  wait(150, msec);  
   Intake.spin(fwd,12,volt);
-  chassis.drive_distance(12,90,6,6,1,999,1500); 
-
-
+  chassis.drive_distance(12,90,6,6,1,500,1500); 
 
   chassis.drive_distance(-4,45,12,6,1,0,1500);//-4
   chassis.drive_distance(-6,45,12,6,1,0,2000);
   chassis.drive_distance(-6,90,12,6,1,0,2500);//-8
   Intake.spin(reverse,12,volt);
-  wait(250, msec);
+  wait(150, msec);
   Intake.spin(fwd,12,volt);
-  chassis.drive_distance(12,90,6,6,0.5,200,1500);//we are splitting this into two parts, so that it can outtake midway //11in
-  
-
-  chassis.drive_distance(-12,180,12,6,2,0,2000);
+  chassis.drive_distance(13,90,6,6,0.5,200,1500);//we are splitting this into two parts, so that it can outtake midway //11in
+  chassis.drive_distance(-13,180,12,6,2,0,2000);
   MogoMech.set(false);
-  Intake.spin(reverse,12,volt);
   chassis.drive_distance(-35,45,12,6,2,0,2000);
-  Intake.stop();
+  Intake.spin(reverse,12,volt);
   chassis.drive_distance(13,45,12,6,1,300,2000);
-
+  Intake.stop();
   R1.setBrake(vex::brakeType::brake);
   R2.setBrake(vex::brakeType::brake);
   R3.setBrake(vex::brakeType::brake);
@@ -507,52 +751,108 @@ void Right_Blue_Stake_3(){
   L2.setBrake(vex::brakeType::brake);
   L3.setBrake(vex::brakeType::brake);
 
-  //chassis.drive_distance(4,-45,12,6,1,200,2000);
   chassis.drive_stop(brake);
   Intake.stop();
 }
 
 void Entire_Field_AWP(){
+
+
+
   //turn to wallstake and raise arm and neutral mech
-  wait(100, msec);
-  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
-  chassis.drive_distance(9.5,0,12,12,1,150,1500); //10.5
-  Intake.spin(reverse,12,volt);
-  chassis.turn_to_angle(75,12,2,150,1750);
+  chassis.drive_distance(9.5,0,12,12,1,0,1500); 
+  //Intake.spin(reverse,12,volt);
+  chassis.turn_to_angle(75,12,2,50,1750);
+
   //drive to wallstake and score
-  chassis.drive_distance(4.5,75,4,12,1,50,1500);
+  chassis.drive_distance(4,75,4,12,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
 
-  
   //go to mobile goal and grab it
-  chassis.drive_distance(-14,55,12,12,1,100,2500);
-  chassis.drive_distance(-24.5,55,6,12,1,150,1500); //3 voltsز
-  Intake.stop();
+  chassis.drive_distance(-10,55,12,12,1,50,2500); /// i made it -12 og is -14
+  chassis.drive_distance(-24.5,55,6,12,1,50,1500); //3 voltsز
+  Intake.spin(fwd,12,volt);
   
   ARMPiston.set(false);
   MogoMech.set(true);
-  wait(100, msec);
+  wait(50, msec);
   //go to donut and intake
   chassis.turn_to_angle(180,12,1,50,1250);
-  Intake.spin(fwd,12,volt);
-  chassis.drive_distance(18,180,6,12,2,150,2500);
-  Intake.spin(fwd,12,volt);
-  chassis.turn_to_angle(24.5,12,0.5,100,1500);
-  chassis.drive_distance(68,22.5,9,12,1,350,3000);
-  chassis.drive_distance(-8,22.5,12,12,1,0,1500);
+  Intake.spin(fwd, 200, rpm);
+  chassis.drive_distance(18,180,6,12,2,50,2500);
+  Intake.spin(fwd, 100, rpm);
+  chassis.turn_to_angle(24.5,12,0.5,50,1500);
+  Intake.spin(fwd,200,rpm);
+  chassis.drive_distance(68,24.5,12,6,1,50,3000);
+  Intake.spin(fwd,200,rpm);
+  chassis.drive_distance(-8,24.5,12,12,1,0,1500);
+  Intake.spin(fwd,50,rpm);
   MogoMech.set(false);
-
+  Intake.stop(brake);
   //turn to new mogo
-  chassis.turn_to_angle(125,12,1,50,1500);
-  chassis.drive_distance(-26,125,6,12);
-  MogoMech.set(true);
-  
 
+  //twewtwewywywywyewtewtweyewywwyewyweyewyweyewyyewyewyewyewyewyewyewy
+  chassis.turn_to_angle(120,12,1,50,1500);
+  chassis.drive_distance(-26,120,12,6,1,0,3500);
+  MogoMech.set(true);
+  wait(150, msec);
+  Intake.spin(fwd,12,volt);
+  chassis.turn_to_angle(0,12,1,50,3500);
+  chassis.drive_distance(10,0,12,6,2,0,2500);
+  MogoMech.set(false);
+  chassis.drive_distance(16,90,12,6,1,0,3500);
+
+}
+
+void Left_Blue_Rush(){
+  MogoMech.set(false);
+  NeutralPiston.set(true);
+
+  ARMPiston.set(true);
+  chassis.drive_distance(43,-35,12,3,0.5,0,2500); //protect this line at all costs
+
+  NeutralPiston.set(false);
+  wait(300, msec);
+  ARMPiston.set(false);
   
+  wait(100, msec);
+
+  chassis.drive_distance(-3,0,12,6,1,100,3500);
+  chassis.drive_distance(-35,0,12,6,1,0,2500); //-27
+  ARMPiston.set(true);
+  wait(250, msec);
+  chassis.DriveL.spin(fwd,12,volt);
+  chassis.DriveR.spin(reverse,6,volt);
+  wait(500, msec);
+  chassis.DriveL.stop(brakeType::brake);
+  chassis.DriveR.stop(brakeType::brake);
+  ARMPiston.set(false);
+  wait(1000, msec);
+
+  chassis.turn_to_angle(-150,12,1,150,3000);
+  chassis.drive_distance(-22,-150,12,6,1,0,2500); //-22
+  MogoMech.set(true);
+  Intake.spin(fwd,12,volt);
+  chassis.turn_to_angle(-90,12,1,150,2000);
+  chassis.drive_distance(30,-90,12,6,1,250,2500);
+
+  chassis.turn_to_angle(90,12,1,150,3000);
+  MogoMech.set(false);
+  R1.setBrake(vex::brakeType::brake);
+  R2.setBrake(vex::brakeType::brake);
+  R3.setBrake(vex::brakeType::brake);
+  L1.setBrake(vex::brakeType::brake);
+  L2.setBrake(vex::brakeType::brake);
+  L3.setBrake(vex::brakeType::brake);
+  Intake.spin(fwd,0,volt);
+  Intake.stop(brake);
+  chassis.drive_distance(44,45,12,6,1,0,5000);
+  //chassis.drive_distance(5,-45,12,6,1,0,2000);
+  Intake.stop();
 }
 
 void Right_Red_Rush(){
@@ -566,13 +866,7 @@ void Right_Red_Rush(){
   wait(300, msec);
   ARMPiston.set(false);
 
-
-  
   wait(100, msec);
-  //chassis.drive_distance(-18,0,12,6);
-  //ARMPiston.set(true);
- // chassis.drive_distance(-15,0,12,6,1,0,1500);
-  //MogoMech.set(true);
 
   chassis.drive_distance(-3,0,12,6,1,100,3500);
   chassis.drive_distance(-35,0,12,6,1,0,2500); //-27
@@ -604,11 +898,11 @@ void Right_Red_Rush(){
   Intake.spin(fwd,0,volt);
   Intake.stop(brake);
   chassis.drive_distance(44,-45,12,6,1,0,5000);
-  //chassis.drive_distance(5,-45,12,6,1,0,2000);
   Intake.stop();
 }
 
 void Right_Blue_Rush(){
+  //dont use hahahaha there isnt a rush for right side blue
   MogoMech.set(false);
   NeutralPiston.set(true);
 
@@ -622,10 +916,7 @@ void Right_Blue_Rush(){
 
   
   wait(100, msec);
-  //chassis.drive_distance(-18,0,12,6);
-  //ARMPiston.set(true);
- // chassis.drive_distance(-15,0,12,6,1,0,1500);
-  //MogoMech.set(true);
+
 
   chassis.drive_distance(-3,0,12,6,1,100,3500);
   chassis.drive_distance(-35,0,12,6,1,0,2500); //-27
@@ -662,26 +953,29 @@ void Right_Blue_Rush(){
 }
 
 void Nothing(){
-
+  //do nothing in life
+  //this code does nothing
+  //Nothing
 }
 
 void Right_Blue_Alliance_Stake_1(){
   //turn to wallstake and raise arm and neutral mech
+  Intake.spin(fwd,12,volt);
   MogoMech.set(false);
   ARMPiston.set(true);
   NeutralPiston.set(true);
   chassis.drive_distance(10.75,0,12,6,1,200,1500); //10.5
-  chassis.turn_to_angle(72.5,12,3,50,1750);
+  chassis.turn_to_angle(-78.5,12,2,50,1750);
   Intake.stop();
 
   //drive to wallstake and score
-  chassis.drive_distance(5.25,72.5,12,6,0.5,50,1500);//5.5in
+  chassis.drive_distance(4.75,-78.5,12,6,0.5,50,1500);
   NeutralPiston.set(false);
   wait(500, msec);
 
   //go to mobile goal and grab it
-  chassis.drive_distance(-13,55,12,12,1,0,2500); //-14
-  chassis.drive_distance(-27,55,6,12,1,100,1500); //3 volts //-25in
+  chassis.drive_distance(-10,-55,12,12,1,0,2500); //-14
+  chassis.drive_distance(-28,-55,6,12,1,100,1500); //3 volts //-25in
   //chassis.drive_distance(-18,50,6,12,1,150,1500);
   ARMPiston.set(false);
   MogoMech.set(true);
@@ -689,18 +983,25 @@ void Right_Blue_Alliance_Stake_1(){
   //go to donut and intake
   Intake.spin(fwd,12,volt);
   chassis.turn_to_angle(180,12,2,50,2000);
-  chassis.drive_distance(19.5,180,12,12,1,300,2500);
+  chassis.drive_distance(21.5,180,6,12,1,750,2500);//
+
   
 
-  chassis.drive_distance(-12,180,12,6,2,0,2000);
   MogoMech.set(false);
-  Intake.spin(reverse,12,volt);
-  chassis.drive_distance(-35,-45,12,6,2,0,2000);
+  Intake.spin(fwd,12,volt);
+  chassis.drive_distance(-20,45,12,6,1,0,2000);
   Intake.stop();
-  chassis.drive_distance(13,-45,12,6,1,300,2000);
+  Intake.spin(reverse);
+  chassis.drive_distance(15,45,12,6,1,300,2000);
 
-  
+  R1.setBrake(vex::brakeType::brake);
+  R2.setBrake(vex::brakeType::brake);
+  R3.setBrake(vex::brakeType::brake);
+  L1.setBrake(vex::brakeType::brake);
+  L2.setBrake(vex::brakeType::brake);
+  L3.setBrake(vex::brakeType::brake);
 
+  //chassis.drive_distance(4,-45,12,6,1,200,2000);
   chassis.drive_stop(brake);
   Intake.stop();
 }
@@ -708,6 +1009,8 @@ void Right_Blue_Alliance_Stake_1(){
 void Right_Blue_Side_1P(){
 
 }
+
+
 
 
 
@@ -737,12 +1040,7 @@ void odom_test(){
  */
 
 void tank_odom_test(){
-  odom_constants();
-  chassis.set_coordinates(0, 0, 0);
-  chassis.turn_to_point(24, 24);
-  chassis.drive_to_point(24,24);
-  chassis.drive_to_point(0,0);
-  chassis.turn_to_angle(0);
+  
 }
 
 /**
@@ -758,3 +1056,4 @@ void holonomic_odom_test(){
   chassis.holonomic_drive_to_pose(0, 18, 270);
   chassis.holonomic_drive_to_pose(0, 0, 0);
 }
+
